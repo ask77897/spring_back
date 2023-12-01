@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+
+<body>
+	<h1>교수등록</h1>
+	<form name="frm">
+		<input name="pcode" placeholder="교수번호"><hr>
+		<input name="pname" placeholder="교수이름"><hr>
+		<input name="dept" placeholder="전공"><hr>
+		<button type="submit">등록</button>
+		<button type="reset">취소</button>
+	</form>
+</body>
+<script>
+	$(frm).on("submit", function(e){
+		e.preventDefault();
+		if(confirm("등록하시겠습니까?")){
+			$.ajax({
+				
+			})
+		}
+	})
+</script>
+</html>

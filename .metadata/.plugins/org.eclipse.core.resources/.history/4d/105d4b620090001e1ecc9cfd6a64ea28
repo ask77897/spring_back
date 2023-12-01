@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+</head>
+
+<body>
+	<h1>교수정보수정</h1>
+	<div id="div_pro"></div>
+</body>
+<script id="temp_pro" type="x-handlebars=template">
+	<form name="frm" id="frm">
+		<input name="pcode" placeholder="교수번호" value="{{pcode}}"><hr>
+		<input name="pname" placeholder="교수이름" value="{{pname}}"><hr>
+		<input name="dept" placeholder="전공" value="{{dept}}"><hr>
+		<button type="submit">수정</button>
+		<button type="reset">취소</button>
+	</form>
+</script>
+<script>
+	const pcode = "[[${pcode}]]";
+	//alert(pcode);
+	$.ajax({
+		type: 'get',
+		url: "/pro/read.json/" + pcode,
+		success: function (data) {
+			//console.log(data);
+			const temp = Handlebars.compile($("#temp_pro").html());
+			$("#div_pro").html(temp(data));
+		}
+	})
+	
+	$("#div_pro").on("submit", "#frm", function(e){
+		e.preventDefault();
+		alert("..")
+	})
+</script>
+
+</html>

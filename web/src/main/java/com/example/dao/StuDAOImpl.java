@@ -1,0 +1,47 @@
+package com.example.dao;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.example.domain.EnrollVO;
+
+@Repository
+public class StuDAOImpl implements StuDAO{
+	@Autowired
+	SqlSession session;
+	String namespace="com.example.mapper.StuMapper";
+	
+	@Override
+	public List<HashMap<String, Object>> list() {
+		return session.selectList(namespace + ".list");
+	}
+
+	@Override
+	public List<HashMap<String, Object>> liEnroll(String scode) {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace + ".liEnroll", scode);
+	}
+
+	@Override
+	public int check(EnrollVO vo) {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace + ".check", vo);
+	}
+
+	@Override
+	public void inEnroll(EnrollVO vo) {
+		// TODO Auto-generated method stub
+		session.insert(namespace + ".inEnroll", vo);
+	}
+
+	@Override
+	public void deEnroll(EnrollVO vo) {
+		// TODO Auto-generated method stub
+		session.delete(namespace + ".deEnroll", vo);
+	}
+
+}

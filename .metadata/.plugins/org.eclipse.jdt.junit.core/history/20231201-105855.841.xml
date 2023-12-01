@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="WebApplicationTests" project="web" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.example.WebApplicationTests" time="0.782" displayname="WebApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.WebApplicationTests]">
+    <testcase name="contextLoads" classname="com.example.WebApplicationTests" time="0.782" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.example.WebApplicationTests]/[method:contextLoads()]">
+      <error>org.springframework.jdbc.BadSqlGrammarException: &#13;
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(1-1)*3, 3' at line 1&#13;
+### The error may exist in file [C:\data\spring2\web\bin\main\mapper\ProMapper.xml]&#13;
+### The error may involve defaultParameterMap&#13;
+### The error occurred while setting parameters&#13;
+### SQL: select * from professors limit (?-1)*?, ?&#13;
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(1-1)*3, 3' at line 1
+; bad SQL grammar []&#13;
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)&#13;
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)&#13;
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)&#13;
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)&#13;
+	at jdk.proxy2/jdk.proxy2.$Proxy63.selectList(Unknown Source)&#13;
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)&#13;
+	at com.example.dao.ProDAOImpl.list(ProDAOImpl.java:20)&#13;
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)&#13;
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)&#13;
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)&#13;
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)&#13;
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)&#13;
+	at com.example.dao.ProDAOImpl$$SpringCGLIB$$0.list(&lt;generated&gt;)&#13;
+	at com.example.WebApplicationTests.contextLoads(WebApplicationTests.java:20)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(1-1)*3, 3' at line 1&#13;
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)&#13;
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)&#13;
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)&#13;
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354)&#13;
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)&#13;
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)&#13;
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)&#13;
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)&#13;
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)&#13;
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)&#13;
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)&#13;
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)&#13;
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)&#13;
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89)&#13;
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151)&#13;
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145)&#13;
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)&#13;
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)&#13;
+	... 18 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

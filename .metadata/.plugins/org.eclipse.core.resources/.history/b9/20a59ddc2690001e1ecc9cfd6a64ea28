@@ -1,0 +1,17 @@
+package com.example.service;
+
+import org.springframework.stereotype.Service;
+
+import com.example.domain.EnrollVO;
+
+@Service
+public class StuServiceImpl implements StuService{
+	
+	
+	@Override
+	public void inEnroll(EnrollVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

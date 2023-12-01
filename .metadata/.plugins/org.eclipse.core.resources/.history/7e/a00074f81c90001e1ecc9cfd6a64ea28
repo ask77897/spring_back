@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+</head>
+
+<body>
+	<h1 id="scode"></h1>
+	<div id="div_enroll"></div>
+</body>
+<script id="temp_enroll" type='x-handlebars-template'>
+	<table border='1' width='500'>
+		{{#each .}}
+		<tr>
+			<td>{{lcode}}</td>
+			<td>{{lname}}</a></td>
+			<td>{{persons}}/{{capacity}}</td>
+			<td><button scode="{{scode}}">수강취소</button></td>
+		</tr>
+		{{/each}}
+	</table>
+</script>
+<script>
+	const scode="[[${scode}]]"
+	$("#scode").html(scode+" 수강신청")
+	getList();
+	function getList() {
+		$.ajax({
+			type: 'get',
+			url: '/stu/enroll/list.json' + scode,
+			success: function (data) {
+				//console.log(data);
+				const temp = Handlebars.compile($("#temp_enroll").html());
+				$("#div_enroll").html(temp(data));
+			}
+		})
+	}
+</script>
+</html>
